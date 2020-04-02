@@ -1,0 +1,3 @@
+###### Requirements with Version Specifiers ######
+django == 3.0.5
+djangorestframework == 3.11.0 
