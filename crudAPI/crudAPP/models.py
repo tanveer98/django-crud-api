@@ -6,10 +6,16 @@ class Category(models.Model):
     def __str__(self):
         str_ = self.category_name
         return str_
+        
 class Product(models.Model):
-    category_id = models.ForeignKey(to=Category, on_delete=models.SET_NULL, null=True, db_column='category_id')
+    #category_id = models.ForeignKey(to=Category, on_delete=models.SET_NULL, null=True, db_column='category_id')
+    product_category = models.ForeignKey(to=Category, on_delete=models.SET_NULL, null=True)
     product_name = models.CharField(max_length=128)
 
     def __str__(self):
         str_ = self.product_name
         return str_
+
+
+class CategoryProduct(models.Model):
+    pass

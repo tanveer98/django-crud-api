@@ -3,29 +3,46 @@ from rest_framework import serializers
 
 
 
-class CategorySerializer(serializers.HyperlinkedModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['id', 'category_name','url']
+        fields = ['id', 'category_name']
 
+        # def to_representation(self,value):
+        #     ret = {
+        #         "id" : value.id,
+        #         "category_name" : value.category_name,
+        #     }
+        #     return ret
 
-class ProductReadSerializer(serializers.HyperlinkedModelSerializer):
-    #category_name = serializers.CharField(source='category', read_only=True)
-    category_id = CategorySerializer()
+class ProductReadSerializer(serializers.ModelSerializer):
+    product_category = CategorySerializer()
     class Meta:
         model = Product
-        fields = ['url', 'id', 'product_name', 'category_id']
+        fields = [ 'id', 'product_name', 'product_category']
        
 
 class ProductWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['url', 'id', 'product_name', "category_id"]
+        fields = ['id', 'product_name', "product_category"]
 
-        def create(self,validated_data):
-            print(validated_data)
-            prod_name = validated_data.pop("product_name")
-            cat_id = validated_data.pop("category_id")
-            cat = Category.objects.filter(id=cat_id)
+        # def create(self,validated_data):
+        #     print(validated_data)
+        #     prod_name = validated_data.pop("product_name")
+        #     cat_id = validated_data.pop("category_id")
+        #     cat = Category.objects.filter(id=cat_id)
+        #     return Product.objects.create(category=cat,product_name=prod_name, **validated_data)
 
-            return Product.objects.create(category=cat,product_name=prod_name, **validated_data)
+class ProductSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    product_name = serializers.CharField(max_length=128)
+
+class CatSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    category_name = serializers.CharField(max_length=64)
+
+
+class CategoryProductSerializer(serializers.Serializer):
+    category = CatSerializer()
+    product = ProductSerializer(many=True)
