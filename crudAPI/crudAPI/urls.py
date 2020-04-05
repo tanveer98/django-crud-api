@@ -19,7 +19,7 @@ from crudAPP import views
 
 router = routers.DefaultRouter()
 router.register(r'category', views.CategoryViewSet)
-router.register(r'tessst', views.AnotherViewSet, basename="Another")
+router.register(r'category-details', views.CategoryDetailsViewSet, basename="Category-details")
 router.register(r'products', views.ProductViewSet)
 
 # Wire up our API using automatic URL routing.

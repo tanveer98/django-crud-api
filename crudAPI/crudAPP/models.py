@@ -6,6 +6,8 @@ class Category(models.Model):
     def __str__(self):
         str_ = self.category_name
         return str_
+
+    
         
 class Product(models.Model):
     #category_id = models.ForeignKey(to=Category, on_delete=models.SET_NULL, null=True, db_column='category_id')
@@ -15,7 +17,3 @@ class Product(models.Model):
     def __str__(self):
         str_ = self.product_name
         return str_
-
-
-class CategoryProduct(models.Model):
-    pass
