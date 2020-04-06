@@ -8,7 +8,7 @@
 1. `apt-get install python3-pip python3 sqlite3 python3-venv` (to installing the necessary packages) (this assumes that its running on debian/ubuntu where venv is NOT bundled with python3 by default)
 2. `pip install -r requirements.txt`
    or
-   `pip3 install django djangorestframework` (if requirements doesn't work)
+   `pip3 install django djangorestframework` (if requirements doesn't work) (do this after cloning the repository)
 
 ### Creating a virtual enviornment
 
@@ -18,6 +18,9 @@
 
 4. `cd NAME_OF_VENV` &&
    `git clone ...` (to get the necessary project files)
+   `source bin/activate` to activate the virtul environment
+    install dependency using the method from step 2   
+    
 5. go to crudAPI/settings.py, change allowed hosts from
    `[*]`
    to
