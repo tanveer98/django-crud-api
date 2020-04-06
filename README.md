@@ -21,8 +21,7 @@
    `['127.0.0.1', 'localhost', '{EC2_DNS_NAME}']`
    (so that you can access the endpoint via postman or browser, optionally you can add instance IP address if you want)
 6. go to root project directory (where manage.py is) and run the following command
-   `python3 manage.py sqlmigrate` (to create db schema)
-   `python3 manage.py migrate` (to migrate data inside db)
+   `python3 manage.py migrate` (to create and initalize db)
 7. to server run the command
    `python3 manage.py runserver 0:8000`, the default server will run on port 8000
 
