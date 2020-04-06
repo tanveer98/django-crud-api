@@ -13,7 +13,7 @@
 
 ### Deploying the project
 
-4. `cd NAME_OF_VENV`
+4. `cd NAME_OF_VENV` &&
    `git clone ...` (to get the necessary project files)
 5. go to crudAPI/settings.py, change allowed hosts from
    `[*]`
