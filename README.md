@@ -1,5 +1,7 @@
 # Deployment procedure (to AWS EC2)
 
+0. Be sure to open port 8000 from AWS console for the installation environment!
+
 ### Installing dependencies
 
 1. `apt-get install python3-pip python3 sqlite3 python3-venv` (to installing the necessary packages) (this assumes that its running on debian/ubuntu where venv is NOT bundled with python3 by default)
