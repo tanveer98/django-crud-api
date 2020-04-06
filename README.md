@@ -1,3 +1,4 @@
+
 # Deployment procedure (to AWS EC2)
 
 0. Be sure to open port 8000 from AWS console for the installation environment!
@@ -24,7 +25,8 @@
    (so that you can access the endpoint via postman or browser, optionally you can add instance IP address if you want)
 6. go to root project directory (where manage.py is) and run the following command
    `python3 manage.py migrate` (to create and initalize db)
-7. to server run the command
+7. `python3 manage.py test` (to run the tests)
+8. to server run the command
    `python3 manage.py runserver 0:8000`, the default server will run on port 8000
 
 you can use postman or browser to send requests at _{EC2_DNS_NAME}:8000_
