@@ -18,7 +18,7 @@
 5. go to crudAPI/settings.py, change allowed hosts from
    `[*]`
    to
-   `['127.0.0.1', 'localhost', '{EC2_INSTACE_DNS']`
+   `['127.0.0.1', 'localhost', '{EC2_DNS_NAME}']`
    (so that you can access the endpoint via postman or browser, optionally you can add instance IP address if you want)
 6. go to root project directory (where manage.py is) and run the following command
    `python3 manage.py sqlmigrate` (to create db schema)
